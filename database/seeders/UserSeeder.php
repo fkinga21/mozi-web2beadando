@@ -1,27 +1,31 @@
 <?php
 
 namespace Database\Seeders;
-use Illuminate\Support\Facades\DB;
+
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+
 class UserSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
+    public function run(): void
     {
-        DB::table('users')->insert([
-            'name' => 'User1', 
-            'email' => 'aaa@aaa.hu', 
-            'password' => bcrypt('aaaaaaaa'), 
-        ]);
-        DB::table('users')->insert([
-            'name' => 'admin', 
-            'email' => 'bbb@bbb', 
-            'password' => bcrypt('bbbbbbbb'), 
-            'role' => 1, 
-        ]);
+        // updateOrInsert: a seeder többször is futtatható duplikált kulcs hiba nélkül
+        $this->felhasznalo('Felhasználó', 'user@mozi.hu', 'user1234', 2);
+        $this->felhasznalo('Admin', 'admin@mozi.hu', 'admin1234', 1);
+    }
+
+    private function felhasznalo(string $nev, string $email, string $jelszo, int $szerep): void
+    {
+        DB::table('users')->updateOrInsert(
+            ['email' => $email],
+            [
+                'name'              => $nev,
+                'password'          => bcrypt($jelszo),
+                'role'              => $szerep,
+                'email_verified_at' => now(),
+                'created_at'        => now(),
+                'updated_at'        => now(),
+            ]
+        );
     }
 }
