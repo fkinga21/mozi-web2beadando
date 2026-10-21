@@ -18,8 +18,8 @@ const mainNavItems: NavItem[] = [
 
 const footerNavItems: NavItem[] = [
     {
-        title: 'Mainpage',
-        href: '/introduction',
+        title: 'Főoldal',
+        href: '/',
         icon: Folder,
     },
     {

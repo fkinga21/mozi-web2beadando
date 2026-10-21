@@ -30,8 +30,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', function () { return redirect('/'); })->name('dashboard');
 
     Route::get('uzenetek', [KapcsolatController::class, 'uzenetek']);
-    Route::get('user', function () { return view('user'); })->name('user');
-    Route::get('admin', 'App\Http\Controllers\AdminController@adminPage');
 
     // Ideiglenes CRUD oldal (csak admin), később kicseréljük a valódira
     Route::get('film', function () {
@@ -53,6 +51,3 @@ Route::middleware('guest')->group(function () {
     Route::get('login', fn () => view('auth.login'))->name('login');
     Route::get('register', fn () => view('auth.register'))->name('register');
 });
-
-Route::get('exercise1', function () { return view('view1'); });
-Route::get('introduction', function () { return view('introduction'); });
