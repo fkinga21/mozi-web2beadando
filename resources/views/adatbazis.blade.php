@@ -18,7 +18,7 @@
 
     {{-- ELŐADÁSOK --}}
     <div class="tab-pane fade show active" id="tab-eloadas" role="tabpanel">
-      <form method="get" action="/adatbazis" class="row g-2 mb-3">
+      <form method="get" action="{{ route('adatbazis') }}" class="row g-2 mb-3">
         <div class="col-md-5">
           <select name="mozi" class="form-select">
             <option value="">Minden mozi</option>
@@ -39,7 +39,7 @@
           <button type="submit" class="btn btn-primary">Szűrés</button>
         </div>
         <div class="col-md-1 d-grid">
-          <a href="/adatbazis" class="btn btn-outline-secondary">Törlés</a>
+          <a href="{{ route('adatbazis') }}" class="btn btn-outline-secondary">Törlés</a>
         </div>
       </form>
 

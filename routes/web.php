@@ -19,25 +19,16 @@ Route::get('/', function () {
     ]);
 })->name('home');
 
-Route::get('adatbazis', [AdatbazisController::class, 'index']);
-Route::get('kapcsolat', [KapcsolatController::class, 'urlap']);
-Route::post('kapcsolat', [KapcsolatController::class, 'kuldes']);
-Route::get('diagram', [DiagramController::class, 'index']);
-
+Route::get('adatbazis', [AdatbazisController::class, 'index'])->name('adatbazis');
+Route::get('kapcsolat', [KapcsolatController::class, 'urlap'])->name('kapcsolat');
+Route::post('kapcsolat', [KapcsolatController::class, 'kuldes'])->name('kapcsolat.kuldes');
+Route::get('diagram', [DiagramController::class, 'index'])->name('diagram');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     // A bejelentkezés után a Főoldalra kerül a felhasználó
-    Route::get('dashboard', function () { return redirect('/'); })->name('dashboard');
+    Route::get('dashboard', function () { return redirect()->route('home'); })->name('dashboard');
 
-    Route::get('uzenetek', [KapcsolatController::class, 'uzenetek']);
-
-    // Ideiglenes CRUD oldal (csak admin), később kicseréljük a valódira
-    Route::get('film', function () {
-        if (request()->user()->role != 1) {
-            return redirect('/');
-        }
-        return view('crud');
-    });
+    Route::get('uzenetek', [KapcsolatController::class, 'uzenetek'])->name('uzenetek');
 });
 
 Route::middleware(['auth', 'verified', 'admin'])->group(function () {

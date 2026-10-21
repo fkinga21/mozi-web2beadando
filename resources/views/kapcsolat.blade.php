@@ -8,7 +8,7 @@
         <div class="alert alert-success">{{ session('siker') }}</div>
       @endif
 
-      <form method="post" action="/kapcsolat" novalidate>
+      <form method="post" action="{{ route('kapcsolat.kuldes') }}" novalidate>
         @csrf
 
         <div class="mb-3">

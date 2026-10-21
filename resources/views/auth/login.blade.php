@@ -5,7 +5,7 @@
         <div class="card-body p-4">
           <h1 class="h3 mb-3">Bejelentkezés</h1>
 
-          <form method="post" action="/login" novalidate>
+          <form method="post" action="{{ route('login') }}" novalidate>
             @csrf
 
             <div class="mb-3">
@@ -34,7 +34,7 @@
           </form>
 
           <p class="text-center mt-3 mb-0">
-            Még nincs fiókod? <a href="/register">Regisztráció</a>
+            Még nincs fiókod? <a href="{{ route('register') }}">Regisztráció</a>
           </p>
         </div>
       </div>

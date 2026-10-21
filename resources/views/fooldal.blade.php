@@ -5,8 +5,8 @@
       Több városban üzemeltetünk mozikat, és minden előadás nézőszámát és bevételét pontosan nyilvántartjuk.
       Böngészd az 1999-es adatokat, nézd meg a diagramokat, vagy küldj üzenetet nekünk.
     </p>
-    <a class="btn btn-light btn-lg me-2" href="/adatbazis">Adatbázis</a>
-    <a class="btn btn-outline-light btn-lg" href="/diagram">Diagram</a>
+    <a class="btn btn-light btn-lg me-2" href="{{ route('adatbazis') }}">Adatbázis</a>
+    <a class="btn btn-outline-light btn-lg" href="{{ route('diagram') }}">Diagram</a>
   </div>
 
   <div class="row g-3 text-center">

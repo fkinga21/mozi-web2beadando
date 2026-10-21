@@ -31,7 +31,7 @@ class KapcsolatController extends Controller
 
         Uzenet::create($adatok);
 
-        return redirect('/kapcsolat')->with('siker', 'Köszönjük, az üzeneted megérkezett!');
+        return redirect()->route('kapcsolat')->with('siker', 'Köszönjük, az üzeneted megérkezett!');
     }
 
     public function uzenetek()
