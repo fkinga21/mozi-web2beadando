@@ -1,6 +1,6 @@
 <x-mainpage>
   <h1 class="mb-1">Diagram</h1>
-  <p class="text-muted">A Művészfilm Kht. 1999-es adatai diagramokon.</p>
+  <p class="text-muted">A Művészfilm Kht. adatai diagramokon ({{ $ev }}. év).</p>
 
   <div class="row g-4">
     <div class="col-12">
